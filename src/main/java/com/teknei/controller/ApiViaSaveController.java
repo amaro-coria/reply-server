@@ -27,7 +27,10 @@ import com.teknei.persistence.dao.SbopRecaViaDAO;
 import com.teknei.persistence.dao.SbopTranDiviViaDAO;
 import com.teknei.persistence.dao.SbopTurnViaDAO;
 import com.teknei.persistence.dao.SfmoHistReceNaveViaDAO;
+import com.teknei.persistence.dao.SfopEquiAlarViaDAO;
+import com.teknei.persistence.dao.SfopMsgCondViaDAO;
 import com.teknei.persistence.dao.SfruAsgnViaDAO;
+import com.teknei.persistence.dao.SfvhDataDiaViaDAO;
 import com.teknei.persistence.entities.CaupDistPosvVia;
 import com.teknei.persistence.entities.CaupTadiPosvVia;
 import com.teknei.persistence.entities.CaupTranVia;
@@ -40,11 +43,15 @@ import com.teknei.persistence.entities.SbopTranDiviVia;
 import com.teknei.persistence.entities.SbopTranVia;
 import com.teknei.persistence.entities.SbopTurnVia;
 import com.teknei.persistence.entities.SfmoHistReceNaveVia;
+import com.teknei.persistence.entities.SfopEquiAlarVia;
+import com.teknei.persistence.entities.SfopMsgCondVia;
 import com.teknei.persistence.entities.SfruAsgnVia;
+import com.teknei.persistence.entities.SfvhDataDiaVia;
 import com.teknei.util.UtilConstants;
 
 /**
  * Rest Controller for saving the BD records based on POST request's
+ * 
  * @author Jorge Amaro
  * @version 1.0.0
  * @since 1.0.0
@@ -83,28 +90,42 @@ public class ApiViaSaveController {
 	private CaupTadiPosvViaDAO daoTadi;
 	@Autowired
 	private SfmoHistReceNaveViaDAO daoSfmo;
+	@Autowired
+	private SfopEquiAlarViaDAO daoEquiAlar;
+	@Autowired
+	private SfvhDataDiaViaDAO daoDataDia;
+	@Autowired
+	private SfopMsgCondViaDAO daoMsgCond;
 
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "turn/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveTurn(@RequestBody List<SbopTurnVia> list) {
 		return save(ApiSaveOptions.SBOP_TURN, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "acce/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveAcce(@RequestBody List<SbopAcceSaliVia> list) {
 		return save(ApiSaveOptions.SBOP_ACCE_SALI, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "tran/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
@@ -117,36 +138,48 @@ public class ApiViaSaveController {
 	public ResponseEntity<ResponseDTO> saveTranDivi(@RequestBody List<SbopTranDiviVia> list) {
 		return save(ApiSaveOptions.SBOP_TRAN_DIVI, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "cont/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveContAcce(@RequestBody List<SbopContAcceVia> list) {
 		return save(ApiSaveOptions.SBOP_CONT_ACCE, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "asgn/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveAsgn(@RequestBody List<SbopAsgnTurnVia> list) {
 		return save(ApiSaveOptions.SBOP_ASGN_TURN, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "reca/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveReca(@RequestBody List<SbopRecaVia> list) {
 		return save(ApiSaveOptions.SBOP_RECA, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "recaDivi/save", method = RequestMethod.POST, consumes = {
@@ -154,45 +187,60 @@ public class ApiViaSaveController {
 	public ResponseEntity<ResponseDTO> saveRecaDivi(@RequestBody List<SbopRecaDiviVia> list) {
 		return save(ApiSaveOptions.SBOP_RECA_DIVI, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "sfru/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveSfru(@RequestBody List<SfruAsgnVia> list) {
 		return save(ApiSaveOptions.SFRU_ASGN, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "cau/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveCauTran(@RequestBody List<CaupTranVia> list) {
 		return save(ApiSaveOptions.CAUP_TRAN, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "dist/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveCaupDist(@RequestBody List<CaupDistPosvVia> list) {
 		return save(ApiSaveOptions.CAUP_DIST_POSV, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "tadi/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveCaupTadi(@RequestBody List<CaupTadiPosvVia> list) {
 		return save(ApiSaveOptions.CAUP_TADI_POSV, list);
 	}
+
 	/**
 	 * Saves the input (list) into local database
-	 * @param list the entities as list
+	 * 
+	 * @param list
+	 *            the entities as list
 	 * @return {@code ResponseDTO}
 	 */
 	@RequestMapping(value = "sfmo/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
@@ -201,9 +249,50 @@ public class ApiViaSaveController {
 	}
 
 	/**
+	 * Saves the input (list) into local database
+	 * 
+	 * @param list
+	 *            the entities as list
+	 * @return {@code ResponseDTO}
+	 */
+	@RequestMapping(value = "sfvh/save", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<ResponseDTO> saveSfvh(@RequestBody List<SfvhDataDiaVia> list) {
+		return save(ApiSaveOptions.SFVH_DATA_DIA, list);
+	}
+
+	/**
+	 * Saves the input (list) into local database
+	 * 
+	 * @param list
+	 *            the entities as list
+	 * @return {@code ResponseDTO}
+	 */
+	@RequestMapping(value = "sfopAlar/save", method = RequestMethod.POST, consumes = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<ResponseDTO> saveSfopAlar(@RequestBody List<SfopEquiAlarVia> list) {
+		return save(ApiSaveOptions.SFOP_EQUI_ALAR, list);
+	}
+
+	/**
+	 * Saves the input (list) into local database
+	 * 
+	 * @param list
+	 *            the entities as list
+	 * @return {@code ResponseDTO}
+	 */
+	@RequestMapping(value = "sfopMsg/save", method = RequestMethod.POST, consumes = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<ResponseDTO> saveSfopMsg(@RequestBody List<SfopMsgCondVia> list) {
+		return save(ApiSaveOptions.SFOP_MSG_COND, list);
+	}
+
+	/**
 	 * Method for save different kind of list's
-	 * @param option - Based on local Enum
-	 * @param list - The list of entities to save
+	 * 
+	 * @param option
+	 *            - Based on local Enum
+	 * @param list
+	 *            - The list of entities to save
 	 * @return The ResponseDTO wrapped in a ResponseEntity
 	 */
 	private ResponseEntity<ResponseDTO> save(ApiSaveOptions option, List list) {
@@ -249,6 +338,15 @@ public class ApiViaSaveController {
 			case SFMO_HIST:
 				daoSfmo.save(list);
 				break;
+			case SFVH_DATA_DIA:
+				daoDataDia.save(list);
+				break;
+			case SFOP_EQUI_ALAR:
+				daoEquiAlar.save(list);
+				break;
+			case SFOP_MSG_COND:
+				daoMsgCond.save(list);
+				break;
 			default:
 				dr = new ResponseDTO(UtilConstants.STATUS_NOE, UtilConstants.MESSAGE_NOE);
 				return new ResponseEntity<ResponseDTO>(dr, HttpStatus.BAD_REQUEST);
@@ -263,7 +361,7 @@ public class ApiViaSaveController {
 	}
 
 	private enum ApiSaveOptions {
-		SBOP_TURN, SBOP_ACCE_SALI, SBOP_TRAN, SBOP_TRAN_DIVI, SBOP_CONT_ACCE, SBOP_ASGN_TURN, SBOP_RECA, SBOP_RECA_DIVI, SFRU_ASGN, CAUP_TRAN, CAUP_DIST_POSV, CAUP_TADI_POSV, SFMO_HIST
+		SBOP_TURN, SBOP_ACCE_SALI, SBOP_TRAN, SBOP_TRAN_DIVI, SBOP_CONT_ACCE, SBOP_ASGN_TURN, SBOP_RECA, SBOP_RECA_DIVI, SFRU_ASGN, CAUP_TRAN, CAUP_DIST_POSV, CAUP_TADI_POSV, SFMO_HIST, SFVH_DATA_DIA, SFOP_MSG_COND, SFOP_EQUI_ALAR
 	}
 
 }
