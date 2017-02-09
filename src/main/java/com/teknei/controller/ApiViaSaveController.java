@@ -133,6 +133,13 @@ public class ApiViaSaveController {
 		return save(ApiSaveOptions.SBOP_TRAN, list);
 	}
 
+	/**
+	 * Saves the input (list) into local database
+	 * 
+	 * @param list
+	 *            the entities as list
+	 * @return {@code ResponseDTO}
+	 */
 	@RequestMapping(value = "tranDivi/save", method = RequestMethod.POST, consumes = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ResponseDTO> saveTranDivi(@RequestBody List<SbopTranDiviVia> list) {
