@@ -35,7 +35,7 @@ public class SfmoHistReceNaveVia implements Serializable {
 	private Long id;
 
 	@Column(name="dist_reco_rece_nave")
-	private double distRecoReceNave;
+	private Double distRecoReceNave;
 
 	@Column(name="fch_crea")
 	private Timestamp fchCrea;
@@ -68,10 +68,10 @@ public class SfmoHistReceNaveVia implements Serializable {
 	private Integer idVehi;
 
 	@Column(name="lati_rece_nave")
-	private double latiReceNave;
+	private Double latiReceNave;
 
 	@Column(name="long_rece_nave")
-	private double longReceNave;
+	private Double longReceNave;
 
 	@Column(name="mode_rece_nave")
 	private String modeReceNave;
@@ -80,7 +80,7 @@ public class SfmoHistReceNaveVia implements Serializable {
 	private String numSeriRecoNave;
 
 	@Column(name="time_reco_rece_nave")
-	private double timeRecoReceNave;
+	private Double timeRecoReceNave;
 
 	@Column(name="usr_crea")
 	private String usrCrea;
@@ -89,7 +89,7 @@ public class SfmoHistReceNaveVia implements Serializable {
 	private String usrModi;
 
 	@Column(name="velo_rece_nave")
-	private double veloReceNave;
+	private Double veloReceNave;
 
 
 }

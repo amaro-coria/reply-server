@@ -5,6 +5,8 @@ package com.teknei.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -60,6 +62,8 @@ import com.teknei.util.UtilConstants;
 @RestController
 @RequestMapping("/api")
 public class ApiViaSaveController {
+	
+	private static final Logger log = LoggerFactory.getLogger(ApiViaSaveController.class);
 
 	/*
 	 * Injected values
@@ -361,6 +365,7 @@ public class ApiViaSaveController {
 			dr = new ResponseDTO(UtilConstants.STATUS_OK, UtilConstants.MESSAGE_OK);
 			return new ResponseEntity<>(dr, HttpStatus.OK);
 		} catch (DataAccessException e) {
+			log.error("Error Data Access Exception: {}", e.getMessage());
 			dr = new ResponseDTO(UtilConstants.STATUS_DATA_ACCESS_EXCEPTION,
 					UtilConstants.MESSAGE_DATA_ACCESS_EXCEPTION);
 			return new ResponseEntity<>(dr, HttpStatus.INTERNAL_SERVER_ERROR);

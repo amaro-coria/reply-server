@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: reply-server
+  cloud:
+    config:
+      uri: http://192.168.1.235:8001
+  profiles:
+    active: cde
