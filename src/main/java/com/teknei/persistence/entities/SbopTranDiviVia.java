@@ -17,59 +17,58 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-
 /**
  * The persistent class for the sbop_tran_divi_via database table.
  * 
  */
 @Entity
-@Table(name="sbop_tran_divi_via", schema = "sitm")
-@NamedQuery(name="SbopTranDiviVia.findAll", query="SELECT s FROM SbopTranDiviVia s")
+@Table(name = "sbop_tran_divi_via", schema = "sitm")
+@NamedQuery(name = "SbopTranDiviVia.findAll", query = "SELECT s FROM SbopTranDiviVia s")
 @Data
 public class SbopTranDiviVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="SBOP_TRAN_DIVI_VIA_ID_GENERATOR", sequenceName="sitm.sbop_tran_divi_via_id_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SBOP_TRAN_DIVI_VIA_ID_GENERATOR")
+	@SequenceGenerator(name = "SBOP_TRAN_DIVI_VIA_ID_GENERATOR", sequenceName = "sitm.sbop_tran_divi_via_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SBOP_TRAN_DIVI_VIA_ID_GENERATOR")
 	private Long id;
 
 	private Integer cant;
 
-	@Column(name="fch_crea")
+	@Column(name = "fch_crea")
 	private Timestamp fchCrea;
 
-	@Column(name="fch_modi")
+	@Column(name = "fch_modi")
 	private Timestamp fchModi;
 
-	@Column(name="id_con_sis")
+	@Column(name = "id_con_sis")
 	private Integer idConSis;
 
-	@Column(name="id_divi")
+	@Column(name = "id_divi")
 	private Integer idDivi;
 
-	@Column(name="id_equi")
+	@Column(name = "id_equi")
 	private Integer idEqui;
 
-	@Column(name="id_esta")
+	@Column(name = "id_esta")
 	private Integer idEsta;
 
-	@Column(name="id_tipo")
+	@Column(name = "id_tipo")
 	private Integer idTipo;
 
-	@Column(name="id_tran")
+	@Column(name = "id_tran")
 	private Integer idTran;
 
-	@Column(name="id_tran_divi")
+	@Column(name = "id_tran_divi")
 	private Integer idTranDivi;
 
-	@Column(name="id_turn")
+	@Column(name = "id_turn")
 	private Long idTurn;
 
-	@Column(name="usr_crea")
+	@Column(name = "usr_crea")
 	private String usrCrea;
 
-	@Column(name="usr_modi")
+	@Column(name = "usr_modi")
 	private String usrModi;
 
 }

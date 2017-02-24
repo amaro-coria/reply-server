@@ -18,82 +18,80 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-
 /**
  * The persistent class for the caup_dist_posv_via database table.
  * 
  */
 @Entity
-@Table(name="caup_dist_posv_via", schema = "sitm")
-@NamedQuery(name="CaupDistPosvVia.findAll", query="SELECT c FROM CaupDistPosvVia c")
+@Table(name = "caup_dist_posv_via", schema = "sitm")
+@NamedQuery(name = "CaupDistPosvVia.findAll", query = "SELECT c FROM CaupDistPosvVia c")
 @Data
 public class CaupDistPosvVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="CAUP_DIST_POSV_VIA_ID_GENERATOR", sequenceName="sitm.caup_dist_posv_via_id_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CAUP_DIST_POSV_VIA_ID_GENERATOR")
+	@SequenceGenerator(name = "CAUP_DIST_POSV_VIA_ID_GENERATOR", sequenceName = "sitm.caup_dist_posv_via_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAUP_DIST_POSV_VIA_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="cant_tarj_devo")
+	@Column(name = "cant_tarj_devo")
 	private Integer cantTarjDevo;
 
-	@Column(name="cant_tarj_entr")
+	@Column(name = "cant_tarj_entr")
 	private Integer cantTarjEntr;
 
-	@Column(name="fch_crea")
+	@Column(name = "fch_crea")
 	private Timestamp fchCrea;
 
-	@Column(name="fch_devo")
+	@Column(name = "fch_devo")
 	private Timestamp fchDevo;
 
-	@Column(name="fch_entr")
+	@Column(name = "fch_entr")
 	private Timestamp fchEntr;
 
-	@Column(name="fch_modi")
+	@Column(name = "fch_modi")
 	private Timestamp fchModi;
 
-	@Column(name="id_dist_posv")
+	@Column(name = "id_dist_posv")
 	private Integer idDistPosv;
 
-	@Column(name="id_emp_supe_devo")
+	@Column(name = "id_emp_supe_devo")
 	private Integer idEmpSupeDevo;
 
-	@Column(name="id_emp_supe_entr")
+	@Column(name = "id_emp_supe_entr")
 	private Integer idEmpSupeEntr;
 
-	@Column(name="id_emp_vend")
+	@Column(name = "id_emp_vend")
 	private Integer idEmpVend;
 
-	@Column(name="id_equi")
+	@Column(name = "id_equi")
 	private Integer idEqui;
 
-	@Column(name="id_esta")
+	@Column(name = "id_esta")
 	private Integer idEsta;
 
-	@Column(name="id_tipo")
+	@Column(name = "id_tipo")
 	private Integer idTipo;
 
-	@Column(name="mont_tarj_devo")
+	@Column(name = "mont_tarj_devo")
 	private BigDecimal montTarjDevo;
 
-	@Column(name="mont_tarj_entr")
+	@Column(name = "mont_tarj_entr")
 	private BigDecimal montTarjEntr;
 
-	@Column(name="sald_efec")
+	@Column(name = "sald_efec")
 	private BigDecimal saldEfec;
 
-	@Column(name="usr_crea")
+	@Column(name = "usr_crea")
 	private String usrCrea;
 
-	@Column(name="usr_modi")
+	@Column(name = "usr_modi")
 	private String usrModi;
 
-	@Column(name="usua_supe_devo")
+	@Column(name = "usua_supe_devo")
 	private String usuaSupeDevo;
 
-	@Column(name="usua_supe_entr")
+	@Column(name = "usua_supe_entr")
 	private String usuaSupeEntr;
-
 
 }

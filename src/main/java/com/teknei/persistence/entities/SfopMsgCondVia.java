@@ -29,7 +29,7 @@ public class SfopMsgCondVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "SFOP_MSG_COND_VIA_ID_GENERATOR", sequenceName = "sitm.sfop_msg_cond_via_id_seq")
+	@SequenceGenerator(name = "SFOP_MSG_COND_VIA_ID_GENERATOR", sequenceName = "sitm.sfop_msg_cond_via_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SFOP_MSG_COND_VIA_ID_GENERATOR")
 	private Long id;
 

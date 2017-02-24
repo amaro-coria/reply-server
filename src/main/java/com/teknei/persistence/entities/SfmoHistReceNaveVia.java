@@ -17,79 +17,77 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-
 /**
  * The persistent class for the sfmo_hist_rece_nave_via database table.
  * 
  */
 @Entity
-@Table(name="sfmo_hist_rece_nave_via", schema = "sitm")
-@NamedQuery(name="SfmoHistReceNaveVia.findAll", query="SELECT s FROM SfmoHistReceNaveVia s")
+@Table(name = "sfmo_hist_rece_nave_via", schema = "sitm")
+@NamedQuery(name = "SfmoHistReceNaveVia.findAll", query = "SELECT s FROM SfmoHistReceNaveVia s")
 @Data
 public class SfmoHistReceNaveVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="SFMO_HIST_RECE_NAVE_VIA_ID_GENERATOR", sequenceName="sitm.sfmo_hist_rece_nave_via_id_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SFMO_HIST_RECE_NAVE_VIA_ID_GENERATOR")
+	@SequenceGenerator(name = "SFMO_HIST_RECE_NAVE_VIA_ID_GENERATOR", sequenceName = "sitm.sfmo_hist_rece_nave_via_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SFMO_HIST_RECE_NAVE_VIA_ID_GENERATOR")
 	private Long id;
 
-	@Column(name="dist_reco_rece_nave")
+	@Column(name = "dist_reco_rece_nave")
 	private Double distRecoReceNave;
 
-	@Column(name="fch_crea")
+	@Column(name = "fch_crea")
 	private Timestamp fchCrea;
 
-	@Column(name="fch_modi")
+	@Column(name = "fch_modi")
 	private Timestamp fchModi;
 
-	@Column(name="fch_rece_nave")
+	@Column(name = "fch_rece_nave")
 	private Timestamp fchReceNave;
 
-	@Column(name="hora_gps_rece_nave")
+	@Column(name = "hora_gps_rece_nave")
 	private Timestamp horaGpsReceNave;
 
-	@Column(name="hora_sist_rece_nave")
+	@Column(name = "hora_sist_rece_nave")
 	private Timestamp horaSistReceNave;
 
-	@Column(name="id_con_sis")
+	@Column(name = "id_con_sis")
 	private Integer idConSis;
 
-	@Column(name="id_esta")
+	@Column(name = "id_esta")
 	private Integer idEsta;
 
-	@Column(name="id_reco_nave")
+	@Column(name = "id_reco_nave")
 	private Integer idRecoNave;
 
-	@Column(name="id_tipo")
+	@Column(name = "id_tipo")
 	private Integer idTipo;
 
-	@Column(name="id_vehi")
+	@Column(name = "id_vehi")
 	private Integer idVehi;
 
-	@Column(name="lati_rece_nave")
+	@Column(name = "lati_rece_nave")
 	private Double latiReceNave;
 
-	@Column(name="long_rece_nave")
+	@Column(name = "long_rece_nave")
 	private Double longReceNave;
 
-	@Column(name="mode_rece_nave")
+	@Column(name = "mode_rece_nave")
 	private String modeReceNave;
 
-	@Column(name="num_seri_reco_nave")
+	@Column(name = "num_seri_reco_nave")
 	private String numSeriRecoNave;
 
-	@Column(name="time_reco_rece_nave")
+	@Column(name = "time_reco_rece_nave")
 	private Double timeRecoReceNave;
 
-	@Column(name="usr_crea")
+	@Column(name = "usr_crea")
 	private String usrCrea;
 
-	@Column(name="usr_modi")
+	@Column(name = "usr_modi")
 	private String usrModi;
 
-	@Column(name="velo_rece_nave")
+	@Column(name = "velo_rece_nave")
 	private Double veloReceNave;
-
 
 }

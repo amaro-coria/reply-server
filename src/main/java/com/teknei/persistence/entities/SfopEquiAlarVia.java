@@ -29,7 +29,7 @@ public class SfopEquiAlarVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "SFOP_EQUI_ALAR_VIA_ID_GENERATOR", sequenceName = "sitm.sfop_equi_alar_via_id_seq")
+	@SequenceGenerator(name = "SFOP_EQUI_ALAR_VIA_ID_GENERATOR", sequenceName = "sitm.sfop_equi_alar_via_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SFOP_EQUI_ALAR_VIA_ID_GENERATOR")
 	private Long id;
 

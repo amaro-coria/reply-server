@@ -31,7 +31,7 @@ public class SbopAcceSaliVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="SBOP_ACCE_SALI_VIA_ID_GENERATOR", sequenceName="sitm.sbop_acce_sali_via_id_seq")
+	@SequenceGenerator(name="SBOP_ACCE_SALI_VIA_ID_GENERATOR", sequenceName="sitm.sbop_acce_sali_via_id_seq", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SBOP_ACCE_SALI_VIA_ID_GENERATOR")
 	private Long id;
 

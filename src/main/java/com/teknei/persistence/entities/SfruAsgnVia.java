@@ -22,7 +22,7 @@ public class SfruAsgnVia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "SFRU_ASGN_VIA_ID_GENERATOR", sequenceName = "sitm.sfru_asgn_via_id_seq")
+	@SequenceGenerator(name = "SFRU_ASGN_VIA_ID_GENERATOR", sequenceName = "sitm.sfru_asgn_via_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SFRU_ASGN_VIA_ID_GENERATOR")
 	private Integer id;
 
