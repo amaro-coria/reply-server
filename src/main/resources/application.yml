@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://172.17.0.121/SITM
-    username: sitm_adm
-    password: usradmin
+    url: jdbc:postgresql://172.17.0.2/ACA_SITM
+    username: postgres
+    password: admin
   jpa:
     properties:
       hibernate:
@@ -16,5 +16,5 @@ server:
   
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
