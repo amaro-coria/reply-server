@@ -3,6 +3,8 @@
  */
 package com.teknei.persistence.dao.disp;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.teknei.persistence.entities.disp.SfvhDataDia;
 import com.teknei.persistence.entities.disp.SfvhDataDiaPK;
 
@@ -13,6 +15,6 @@ import com.teknei.persistence.entities.disp.SfvhDataDiaPK;
  * @since 1.0.0
  *
  */
-public interface SfvhDataDiaDispDAO extends CrudRepositoryDisp<SfvhDataDia, SfvhDataDiaPK> {
+public interface SfvhDataDiaDispDAO extends CrudRepository<SfvhDataDia, SfvhDataDiaPK> {
 
 }

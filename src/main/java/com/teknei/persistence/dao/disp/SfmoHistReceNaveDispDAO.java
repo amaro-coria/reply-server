@@ -3,6 +3,8 @@
  */
 package com.teknei.persistence.dao.disp;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.teknei.persistence.entities.disp.SfmoHistReceNave;
 import com.teknei.persistence.entities.disp.SfmoHistReceNavePK;
 
@@ -13,6 +15,6 @@ import com.teknei.persistence.entities.disp.SfmoHistReceNavePK;
  * @since 1.0.0
  *
  */
-public interface SfmoHistReceNaveDispDAO extends CrudRepositoryDisp<SfmoHistReceNave, SfmoHistReceNavePK> {
+public interface SfmoHistReceNaveDispDAO extends CrudRepository<SfmoHistReceNave, SfmoHistReceNavePK> {
 
 }

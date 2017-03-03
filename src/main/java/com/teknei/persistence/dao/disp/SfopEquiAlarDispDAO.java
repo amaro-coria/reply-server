@@ -3,6 +3,8 @@
  */
 package com.teknei.persistence.dao.disp;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.teknei.persistence.entities.disp.SfopEquiAlar;
 import com.teknei.persistence.entities.disp.SfopEquiAlarPK;
 
@@ -13,6 +15,6 @@ import com.teknei.persistence.entities.disp.SfopEquiAlarPK;
  * @since 1.0.0
  *
  */
-public interface SfopEquiAlarDispDAO extends CrudRepositoryDisp<SfopEquiAlar, SfopEquiAlarPK>{
+public interface SfopEquiAlarDispDAO extends CrudRepository<SfopEquiAlar, SfopEquiAlarPK>{
 
 }

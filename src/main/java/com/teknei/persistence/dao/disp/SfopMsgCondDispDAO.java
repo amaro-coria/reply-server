@@ -3,6 +3,8 @@
  */
 package com.teknei.persistence.dao.disp;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.teknei.persistence.entities.disp.SfopMsgCond;
 import com.teknei.persistence.entities.disp.SfopMsgCondPK;
 
@@ -13,6 +15,6 @@ import com.teknei.persistence.entities.disp.SfopMsgCondPK;
  * @since 1.0.0
  *
  */
-public interface SfopMsgCondDispDAO extends CrudRepositoryDisp<SfopMsgCond, SfopMsgCondPK> {
+public interface SfopMsgCondDispDAO extends CrudRepository<SfopMsgCond, SfopMsgCondPK> {
 
 }

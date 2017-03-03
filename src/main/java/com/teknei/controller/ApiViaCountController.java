@@ -84,11 +84,12 @@ public class ApiViaCountController {
 		map.put(6, daoTranDivi);
 		map.put(7, daoReca);
 		map.put(8, daoRecaDivi);
+		//map.put(9, daoSfru);
 		map.put(10, daoCaupTran);
-		map.put(13, daoDataDia);
-		map.put(14, daoMsgCond);
-		map.put(15, daoEquiAlar);
-		map.put(16, daoSfmo);
+		//map.put(13, daoDataDia);
+		//map.put(14, daoMsgCond);
+		//map.put(15, daoEquiAlar);
+		//map.put(16, daoSfmo);
 	}
 
 	@SuppressWarnings("rawtypes")
