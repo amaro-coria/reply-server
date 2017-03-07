@@ -147,9 +147,8 @@ public class ApiViaCountController {
 			dtStart = new DateTime();
 			dtEnd = new DateTime();
 		}
-		dtStart = dtStart.withTimeAtStartOfDay();
+		dtStart = dtStart.withTimeAtStartOfDay().minusDays(1);
 		dtEnd = dtEnd.withTimeAtStartOfDay();
-		dtEnd = dtEnd.plusDays(1);
 		dtEnd = dtEnd.minusMillis(1);
 		if (apiOption.isPresent()) {
 			ReplyOptions opt = ReplyOptions.getReplyOptionFromNumber(apiOption.get());
