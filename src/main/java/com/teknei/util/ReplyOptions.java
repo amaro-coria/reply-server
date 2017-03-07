@@ -45,6 +45,11 @@ public enum ReplyOptions {
 		this.order = order;
 	}
 
+	/**
+	 * Gets the reply option associated with the given number
+	 * @param number - the number to look associated
+	 * @return the ReplyOption instance
+	 */
 	public static ReplyOptions getReplyOptionFromNumber(int number) {
 		return map.get(number);
 	}

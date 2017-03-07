@@ -1,3 +1,6 @@
+/**
+ * Teknei 2016
+ */
 package com.teknei.controller;
 
 import java.util.ArrayList;
@@ -35,6 +38,14 @@ import com.teknei.persistence.dao.disp.SfvhDataDiaDispDAO;
 import com.teknei.util.ReplyOptions;
 import com.teknei.util.UtilConstants;
 
+/**
+ * Rest Controller for counting the total of records
+ * 
+ * @author Jorge Amaro
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class ApiViaCountController {
@@ -73,6 +84,9 @@ public class ApiViaCountController {
 	@SuppressWarnings("rawtypes")
 	private Map<Integer, CrudRepositoryDisp> map;
 
+	/**
+	 * Post-construct method
+	 */
 	@PostConstruct
 	private void postContruct() {
 		map = new HashMap<>();
@@ -84,14 +98,30 @@ public class ApiViaCountController {
 		map.put(6, daoTranDivi);
 		map.put(7, daoReca);
 		map.put(8, daoRecaDivi);
-		//map.put(9, daoSfru);
+		// map.put(9, daoSfru);
 		map.put(10, daoCaupTran);
-		//map.put(13, daoDataDia);
-		//map.put(14, daoMsgCond);
-		//map.put(15, daoEquiAlar);
-		//map.put(16, daoSfmo);
+		// map.put(13, daoDataDia);
+		// map.put(14, daoMsgCond);
+		// map.put(15, daoEquiAlar);
+		// map.put(16, daoSfmo);
 	}
 
+	/**
+	 * Count the total records according to the parameters received
+	 * 
+	 * @param idEqui
+	 *            - the id of the equi received
+	 * @param startDate
+	 *            - the startDate in yyyy-mm-dd format [optional, if no
+	 *            provided, yesterday is default]
+	 * @param endDate
+	 *            - the endDate in yyyy-mm-dd format [optional, if no provided,
+	 *            yesterday is default]
+	 * @param apiOption
+	 *            - the apiOption provided [optional - if no provided ALL
+	 *            options are considered]
+	 * @return
+	 */
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = { "count/{idEqui}", "count/{idEqui}/{startDate}", "count/{idEqui}/{startDate}/{endDate}",
 			"count/{idEqui}/{startDate}/{endDate}/{apiOption}" }, method = RequestMethod.GET)
