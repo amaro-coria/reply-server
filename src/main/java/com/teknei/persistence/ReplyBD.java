@@ -48,5 +48,23 @@ public class ReplyBD {
 			return null;
 		}
 	}
+	
+	/**
+	 * Updates specific pass-table for null non-handled values
+	 */
+	public void callSbopTranViaUpdate(){
+		String sql = "update sitm.sbop_tran_via set id_tarj = null where id_tarj is not null;";
+		jdbcTemplate.queryForObject(sql, Object.class);
+	}
+	
+	/**
+	 * Calls the store procedure for clean the pass-tables
+	 * @return the overall status of the process
+	 */
+	public String callSPClean(){
+		String sql = "select sitm.sbop_clea_tran(1);";
+		Object o = jdbcTemplate.queryForObject(sql, Object.class);
+		return o.toString();
+	}
 
 }

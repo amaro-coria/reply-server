@@ -24,6 +24,7 @@ import com.teknei.persistence.dao.via.CaupTranViaDAO;
 import com.teknei.persistence.dao.via.SbopAcceSaliViaDAO;
 import com.teknei.persistence.dao.via.SbopAsgnTurnViaDAO;
 import com.teknei.persistence.dao.via.SbopContAcceViaDAO;
+import com.teknei.persistence.dao.via.SbopContReplViaDAO;
 import com.teknei.persistence.dao.via.SbopRecaDiviViaDAO;
 import com.teknei.persistence.dao.via.SbopRecaViaDAO;
 import com.teknei.persistence.dao.via.SbopTranDiviViaDAO;
@@ -39,6 +40,7 @@ import com.teknei.persistence.entities.CaupTranVia;
 import com.teknei.persistence.entities.SbopAcceSaliVia;
 import com.teknei.persistence.entities.SbopAsgnTurnVia;
 import com.teknei.persistence.entities.SbopContAcceVia;
+import com.teknei.persistence.entities.SbopContReplVia;
 import com.teknei.persistence.entities.SbopRecaDiviVia;
 import com.teknei.persistence.entities.SbopRecaVia;
 import com.teknei.persistence.entities.SbopTranDiviVia;
@@ -62,7 +64,7 @@ import com.teknei.util.UtilConstants;
 @RestController
 @RequestMapping("/api")
 public class ApiViaSaveController {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(ApiViaSaveController.class);
 
 	/*
@@ -100,6 +102,8 @@ public class ApiViaSaveController {
 	private SfvhDataDiaViaDAO daoDataDia;
 	@Autowired
 	private SfopMsgCondViaDAO daoMsgCond;
+	@Autowired
+	private SbopContReplViaDAO daoContRepl;
 
 	/**
 	 * Saves the input (list) into local database
@@ -296,6 +300,19 @@ public class ApiViaSaveController {
 	public ResponseEntity<ResponseDTO> saveSfopMsg(@RequestBody List<SfopMsgCondVia> list) {
 		return save(ApiSaveOptions.SFOP_MSG_COND, list);
 	}
+	
+	/**
+	 * Saves the input (list) into local database
+	 * 
+	 * @param list
+	 *            the entities as list
+	 * @return {@code ResponseDTO}
+	 */
+	@RequestMapping(value = "contRepl/save", method = RequestMethod.POST, consumes = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<ResponseDTO> saveContRepl(@RequestBody List<SbopContReplVia> list) {
+		return save(ApiSaveOptions.SBOP_CONT_REPL, list);
+	}
 
 	/**
 	 * Method for save different kind of list's
@@ -358,6 +375,9 @@ public class ApiViaSaveController {
 			case SFOP_MSG_COND:
 				daoMsgCond.save(list);
 				break;
+			case SBOP_CONT_REPL:
+				daoContRepl.save(list);
+				break;
 			default:
 				dr = new ResponseDTO(UtilConstants.STATUS_NOE, UtilConstants.MESSAGE_NOE);
 				return new ResponseEntity<ResponseDTO>(dr, HttpStatus.BAD_REQUEST);
@@ -373,7 +393,7 @@ public class ApiViaSaveController {
 	}
 
 	private enum ApiSaveOptions {
-		SBOP_TURN, SBOP_ACCE_SALI, SBOP_TRAN, SBOP_TRAN_DIVI, SBOP_CONT_ACCE, SBOP_ASGN_TURN, SBOP_RECA, SBOP_RECA_DIVI, SFRU_ASGN, CAUP_TRAN, CAUP_DIST_POSV, CAUP_TADI_POSV, SFMO_HIST, SFVH_DATA_DIA, SFOP_MSG_COND, SFOP_EQUI_ALAR
+		SBOP_TURN, SBOP_ACCE_SALI, SBOP_TRAN, SBOP_TRAN_DIVI, SBOP_CONT_ACCE, SBOP_ASGN_TURN, SBOP_RECA, SBOP_RECA_DIVI, SFRU_ASGN, CAUP_TRAN, CAUP_DIST_POSV, CAUP_TADI_POSV, SFMO_HIST, SFVH_DATA_DIA, SFOP_MSG_COND, SFOP_EQUI_ALAR, SBOP_CONT_REPL
 	}
 
 }
