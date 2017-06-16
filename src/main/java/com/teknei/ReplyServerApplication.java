@@ -39,7 +39,7 @@ public class ReplyServerApplication {
 			System.exit(1);
 		} else {
 			if (args[0].equalsIgnoreCase("-v")) {
-				log.info("TKN_VERSION:{}", "1.0.0");
+				log.info("TKN_VERSION:{}", "1.0.1");
 				System.exit(0);
 			} else if (args[0].equalsIgnoreCase("-r")) {
 				log.info("Runnig to listen to reply");

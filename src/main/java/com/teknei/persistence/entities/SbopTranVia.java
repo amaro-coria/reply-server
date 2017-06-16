@@ -104,4 +104,10 @@ public class SbopTranVia implements Serializable {
 	@Column(name = "usr_modi")
 	private String usrModi;
 
+	@Column(name = "id_paq_diav")
+	private Integer idPaqDiav;
+
+	@Column(name = "id_traz")
+	private Integer idTraz;
+
 }
