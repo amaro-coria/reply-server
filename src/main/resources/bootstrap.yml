@@ -1,8 +1,20 @@
 spring:
   application:
-    name: reply-server
+    name: reply-server-cco
   cloud:
     config:
-      uri: http://192.168.1.235:8001
+      uri: http://172.17.0.122:8001
   profiles:
-    active: pde
+    active: cco
+  datasource:
+      url: jdbc:postgresql://localhost/SITM
+      username: postgres
+      password: 4c4t3k
+  jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  compression:
+      enabled: true
+      mime-types: text/html,text/css,application/javascript,application/json
